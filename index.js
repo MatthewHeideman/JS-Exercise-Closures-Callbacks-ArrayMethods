@@ -1,5 +1,5 @@
 // ⭐️ Example Challenge START ⭐️
-
+const runners = require("./data/runners.js");
 /**
  * ### Challenge `processFirstItem`
  * 
@@ -223,11 +223,8 @@ function firstNamesAllCaps(runners) {
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
-  let newTshirt = [];
-  runners.filter( function(apple){
-    if(tShirtSize === apple.shirt_size){
-      newTshirt.push(apple);
-    }
+  const newTshirt = runners.filter( apple =>{
+     return tShirtSize === apple.shirt_size
   });
   return newTshirt;
 }
@@ -250,6 +247,14 @@ function tallyUpDonations(runners) {
   return total;
 }
 
+function getEvery4thRunner(runner) {
+  runner.map(item => {
+    if (item.id % 4 == 0){
+       console.log(item);
+    }
+  })
+}
+getEvery4thRunner(runners)
 /////////////// CLOSURES ///////////////
 /////////////// CLOSURES ///////////////
 
